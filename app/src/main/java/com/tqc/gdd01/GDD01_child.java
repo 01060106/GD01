@@ -3,6 +3,7 @@ package com.tqc.gdd01;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,6 +26,9 @@ public void onCreate(Bundle savedInstanceState)
         String Sex = bundle.getString("Sex");
         double height = bundle.getDouble("height");
         double weight = bundle.getDouble("weight");
+                Log.d("Sex",Sex);
+                Log.d("weight",String.valueOf(weight));
+                Log.d("height",String.valueOf(height));
 
         String BMI_result = this.getBMI(height,weight);
         String BMI_advice = this.getAdvice(Sex,height,weight);
@@ -61,8 +65,7 @@ private String getBMI (double height, double weight)
 
                 double bmi = weight / (height *height);
 
-                return "BMI 結果"+format(bmi);
-
+                return getResources().getString(R.string.report_result)+format(bmi);
         }
 
 //依BMI值取得建議

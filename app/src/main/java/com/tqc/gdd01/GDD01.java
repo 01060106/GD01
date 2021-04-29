@@ -33,7 +33,7 @@ public class GDD01 extends Activity
       {
         //從輸入介面中取出了的身高、體重值，要將身高、體重值傳送給 child_Activity 後作計算
           etheight = findViewById(R.id.tv_Height);
-          etheight = findViewById(R.id.tv_Weight);
+          etweight = findViewById(R.id.tv_Weight);
 
 
           Bundle bundle =new Bundle();
@@ -49,9 +49,9 @@ public class GDD01 extends Activity
 
         //這些附加在 Intent 上的訊息都儲存在 Bundle 物件中
           Intent intent =new Intent(GDD01.this,GDD01_child.class);
-          intent.putExtras(intent);
+          intent.putExtras(bundle);
         //透過「intent.putExtras(bundle)」敘述，將「bundle」 物件附加在 Intent 上，隨著 Intent 送出而送出
-
+          startActivity(intent);
       }
     });
   }
