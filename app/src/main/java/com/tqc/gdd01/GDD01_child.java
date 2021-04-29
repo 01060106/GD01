@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
- public class GDD01_child extends Activity
+import java.text.DecimalFormat;
+
+public class GDD01_child extends Activity
  {
  Bundle bundle;
  Intent intent;
@@ -46,9 +48,9 @@ public void onClick(View v)
 private String format(double num)
         {
         // TO DO
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-
-        return " ";
+                return decimalFormat.format(num);
 
         }
 
@@ -57,20 +59,37 @@ private String getBMI (double height, double weight)
         {
         // TO DO
 
+                double bmi = weight / (height *height);
 
-        return " ";
+                return "BMI 結果"+format(bmi);
+
         }
 
 //依BMI值取得建議
 private String getAdvice (String Sex, double height, double weight)
-        {
+{
         // TO DO
+        double bmi = weight / (height *height);
+        String s = "";
+        if (Sex.equals("M")) {
+                if(bmi<20) {
+                        s = getResources().getString(R.string.advice_light);
+                } else if (bmi > 25) {
+                        s = getResources().getString(R.string.advice_heavy);
+                } else {
+                        s= getResources().getString(R.string.advice_average);
+                }
 
-                String txt ="";
-
-
-
-
-        return " ";
+        } else {
+                if(bmi<18) {
+                        s = getResources().getString(R.string.advice_light);
+                } else if (bmi > 22) {
+                        s = getResources().getString(R.string.advice_heavy);
+                } else {
+                        s= getResources().getString(R.string.advice_average);
+                }
         }
-        }
+
+        return s;
+}
+ }

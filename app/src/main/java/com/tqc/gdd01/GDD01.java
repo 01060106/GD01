@@ -37,8 +37,8 @@ public class GDD01 extends Activity
 
 
           Bundle bundle =new Bundle();
-          bundle.putString("h",etheight.getText().toString());
-          bundle.putString("w",etweight.getText().toString());
+          bundle.putDouble("height",Double.parseDouble(etheight.getText().toString()));
+          bundle.putDouble("weight",Double.parseDouble(etweight.getText().toString()));
           if(rb1.isChecked()){
             bundle.putString("Sex","M");
 
